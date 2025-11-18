@@ -1,26 +1,50 @@
-backend-project-mechanic-advanced/
+Backend-Advanced/
 ├── app.py
 ├── config.py
-└── app/
-    ├── __init__.py
-    ├── auth.py
-    ├── extensions.py
-    ├── models.py
-    └── blueprints/
-        ├── __init__.py
-        ├── customers/
-        │   ├── __init__.py
-        │   ├── routes.py
-        │   └── schemas.py
-        ├── mechanics/
-        │   ├── __init__.py
-        │   ├── routes.py
-        │   └── schemas.py
-        ├── service_tickets/
-        │   ├── __init__.py
-        │   ├── routes.py
-        │   └── schemas.py
-        └── inventory/
-            ├── __init__.py
-            ├── routes.py
-            └── schemas.py
+├── requirements.txt
+├── filestructure.txt
+├── Mechanic - Advanced.postman_collection.json
+│
+├── app/
+│   ├── __init__.py
+│   ├── extensions.py
+│   ├── models.py
+│   ├── auth.py
+│   │
+│   ├── static/
+│   │   └── swagger.yaml
+│   │
+│   ├── blueprints/
+│   │   ├── customers/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── mechanics/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── service_tickets/
+│   │   │   ├── __init__.py
+│   │   │   ├── routes.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   └── inventory/
+│   │       ├── __init__.py
+│   │       ├── routes.py
+│   │       └── schemas.py
+│   │
+│   ├── util/
+│   │   └── utils.py
+│   │
+│   └── __pycache__/ (auto-generated)
+│
+├── tests/
+│   ├── test_customers.py
+│   ├── test_mechanics.py
+│   ├── test_service_tickets.py
+│   ├── test_inventory.py
+│   └── __pycache__/ (auto-generated)
+│
+└── venv/ (virtual environment - excluded from GitHub)
