@@ -45,6 +45,10 @@ def create_app(config_name: str = "DevelopmentConfig"):
     # Import models so db.create_all() sees them
     from . import models  # noqa: F401
 
+    # Ensures tables exist in the current database
+    with app.app_context():
+        db.create_all()
+
     # Register blueprints for API resources
     app.register_blueprint(customers_bp, url_prefix="/customers")
     app.register_blueprint(mechanics_bp, url_prefix="/mechanics")
