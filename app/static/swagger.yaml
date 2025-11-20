@@ -3,7 +3,7 @@ info:
   title: "Mechanic Shop Advanced API"
   description: "API for managing customers, mechanics, service tickets, and inventory for a mechanic shop."
   version: "1.0.0"
-host: "127.0.0.1:5000"
+host: ""
 schemes:
   - "http"
 consumes:
