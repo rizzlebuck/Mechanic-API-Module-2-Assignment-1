@@ -1,5 +1,8 @@
 from flask import Flask
 
+from dotenv import load_dotenv
+import os
+
 from .extensions import db, ma, limiter, cache
 from .blueprints.customers import customers_bp
 from .blueprints.mechanics import mechanics_bp
@@ -22,6 +25,8 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 
 
 def create_app(config_name: str = "DevelopmentConfig"):
+    load_dotenv()   # <-- loads .env into environment variables
+    
     """
     Application Factory.
     Creates and configures an instance of the Flask app.
