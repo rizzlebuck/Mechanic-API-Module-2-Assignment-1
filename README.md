@@ -1,66 +1,128 @@
-# Mechanic API – Module 2 Assignment 1
+# 🚗 Mechanic Shop Advanced API  
+### Fully Deployed on Render • CI/CD Enabled • Swagger Documentation Included
 
-This project is a Flask-based REST API for a mechanic shop.  
-It demonstrates:
+Live API:  
+👉 **https://mechanic-api-module-2-assignment-1.onrender.com**
 
-- Application Factory Pattern
-- Blueprints for modular routing
-- SQLAlchemy models and relationships
-- Marshmallow schemas for validation/serialization
-- JWT authentication
-- Rate limiting and caching
-- Swagger documentation
-- Unit tests for every route
+GitHub Repo:  
+👉 **https://github.com/rizzlebuck/Mechanic-API-Module-2-Assignment-1**
 
 ---
 
-## 🛠 Setup
+## 📌 Overview  
+The **Mechanic Shop Advanced API** is a full-featured Flask REST API supporting:
 
-1. Clone the repository:
-git clone https://github.com/rizzlebuck/Mechanic-API-Module-2-Assignment-1.git
+- Customer Management  
+- Mechanic Management  
+- Inventory System  
+- Service Ticket Workflow  
+- JWT Authentication  
+- Rate Limiting  
+- Caching  
+- Pagination  
+- Swagger Documentation  
+- Render Deployment  
+- CI/CD Pipeline with GitHub Actions
+
+This project completes **Backend Module 2**, demonstrating full API development, documentation, testing, deployment, and automated redeploy through Render.
+
+---
+
+# 🚀 Features  
+### 🔐 Authentication  
+- Customer registration & login  
+- JWT token generation  
+- Token-protected routes  
+
+### 🧰 Mechanic & Inventory Management  
+- Add/edit/delete mechanics  
+- Add parts to service tickets  
+- Track inventory quantity  
+
+### 🧾 Service Tickets  
+- Create service tickets  
+- Assign mechanics  
+- Attach parts to a ticket  
+- Update statuses  
+
+### ⚡ Performance  
+- Global rate limiting  
+- Request caching  
+
+### 🧪 Testing  
+- `unittest` test suite for all routes  
+- Automated tests run on every push via GitHub Actions  
+
+### 📚 Documentation  
+- Full Swagger UI  
+- Hosted at:  
+👉 **https://mechanic-api-module-2-assignment-1.onrender.com/api/docs**
+
+---
+
+# 📁 Project File Structure  
+
+---
+
+# 🛠 Local Setup Instructions  
+
+1️⃣ Clone the repo:  
+git clone https://github.com/rizzlebuck/Mechanic-API-Module-2-Assignment-1
 cd Mechanic-API-Module-2-Assignment-1
 
-3. Create and activate a virtual environment:
-- python -m venv venv
-# Mac / Linux: source venv/bin/activate
-# On Windows: venv\Scripts\activate
+2️⃣ Create a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
 
-3. Install dependencies:
+3️⃣ Install dependencies
 pip install -r requirements.txt
 
-4. Configure environment (if needed):
-- The default configs are in config.py.
-- DevelopmentConfig – uses your MySQL DB (update URI if needed)
-- TestingConfig – uses sqlite:///testing.db
+🔐 Environment Variables
 
-🚀 Running the API: 
-python app.py
+Create a .env file (ignored by Git):
+SQLALCHEMY_DATABASE_URI=postgresql://<user>:<password>@<host>/<dbname>
+SECRET_KEY=your_random_secret_here
+JWT_SECRET=another_random_secret_here
 
+▶️ Running Locally:
+python flask_app.py
 
-By default the app will be available at:
-http://127.0.0.1:5000/
+📘 Swagger Documentation:
+Production:
+👉 https://mechanic-api-module-2-assignment-1.onrender.com/api/docs
 
-📚 Swagger API Docs
-
-Swagger UI is available at:
-http://127.0.0.1:5000/api/docs/
-
-
-From there you can:
-- View all endpoints
-- See request/response shapes
-- Try out requests directly in the browser
-
-🧪 Running Tests
-
-All routes have unit tests using unittest.
-
-Run them with:
+🧪 Running Unit Tests
+Run full test suite:
 python -m unittest discover tests
 
-📬 Postman Collection
+☁️ Deployment (Render)
+-This project is deployed on Render with:
+-Managed PostgreSQL database
+-Gunicorn web server
+-ProductionConfig
+-Environment variables set in dashboard
+-Auto-deploy disabled
+-CI/CD-controlled deployments
 
-A Postman collection is included:
-Mechanic - Advanced.postman_collection.json
+🤖 CI/CD Pipeline (GitHub Actions)
 
-You can import it into Postman to try all endpoints easily.
+Workflow file:
+.github/workflows/main.yaml
+
+Includes three jobs:
+✔ Build:
+-Setup Python
+-Install dependencies
+
+✔ Test:
+-Run unittest suite
+-Depends on build job
+
+✔ Deploy:
+-Uses Render deploy action
+-Only runs after tests pass
+-Requires GitHub Secrets:
+RENDER_API_KEY
+SERVICE_ID
+
+This ensures no broken code ever gets deployed.

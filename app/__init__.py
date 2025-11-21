@@ -1,7 +1,5 @@
 from flask import Flask
-
 from dotenv import load_dotenv
-import os
 
 from .extensions import db, ma, limiter, cache
 from .blueprints.customers import customers_bp
@@ -12,8 +10,9 @@ from .blueprints.inventory import inventory_bp
 from flask_swagger_ui import get_swaggerui_blueprint
 
 # Swagger UI config
-SWAGGER_URL = "/api/docs"          # URL where Swagger UI will be served
-API_URL = "/static/swagger.yaml"   # Path to swagger.yaml 
+SWAGGER_URL = "/api/docs"           # URL where Swagger UI will be served
+API_URL = "/static/swagger.yaml"    # Path to swagger.yaml (inside app/static)
+
 
 swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,
@@ -25,15 +24,16 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 
 
 def create_app(config_name: str = "DevelopmentConfig"):
-    load_dotenv()   # <-- loads .env into environment variables
-    
     """
     Application Factory.
     Creates and configures an instance of the Flask app.
     """
+    # Load .env (works locally; on Render, env vars come frm dashboard)
+    load_dotenv()
+
     app = Flask(__name__)
 
-    # Load configuration from config.py
+    # Load configuration from config.py (DevelopmentConfig, TestingConfig, ProductionConfig)
     app.config.from_object(f"config.{config_name}")
 
     # Initialize extensions with this app
@@ -42,10 +42,10 @@ def create_app(config_name: str = "DevelopmentConfig"):
     limiter.init_app(app)
     cache.init_app(app)
 
-    # Import models so db.create_all() sees them
+    # Import models so db.create_all() can see them
     from . import models  # noqa: F401
 
-    # Ensures tables exist in the current database
+    # Ensure tables exist in the current database
     with app.app_context():
         db.create_all()
 

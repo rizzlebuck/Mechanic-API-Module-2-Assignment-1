@@ -1,11 +1,13 @@
 swagger: '2.0'
 info:
   title: "Mechanic Shop Advanced API"
-  description: "API for managing customers, mechanics, service tickets, and inventory for a mechanic shop."
+  description: "Advanced mechanic shop API with auth, rate limits, inventory, and tickets."
   version: "1.0.0"
-host: ""
+
+host: "mechanic-api-module-2-assignment-1.onrender.com" 
 schemes:
-  - "http"
+  - "https"
+
 consumes:
   - "application/json"
 produces:

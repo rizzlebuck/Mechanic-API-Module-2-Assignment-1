@@ -1,50 +1,34 @@
-Backend-Advanced/
-├── app.py
-├── config.py
-├── requirements.txt
-├── filestructure.txt
-├── Mechanic - Advanced.postman_collection.json
+Backend Project - Mechanic Advanced API/
 │
 ├── app/
-│   ├── __init__.py
-│   ├── extensions.py
-│   ├── models.py
-│   ├── auth.py
-│   │
-│   ├── static/
-│   │   └── swagger.yaml
-│   │
 │   ├── blueprints/
 │   │   ├── customers/
-│   │   │   ├── __init__.py
 │   │   │   ├── routes.py
-│   │   │   └── schemas.py
-│   │   │
+│   │   │   ├── schemas.py
+│   │   │   └── __init__.py
 │   │   ├── mechanics/
-│   │   │   ├── __init__.py
-│   │   │   ├── routes.py
-│   │   │   └── schemas.py
-│   │   │
 │   │   ├── service_tickets/
-│   │   │   ├── __init__.py
-│   │   │   ├── routes.py
-│   │   │   └── schemas.py
-│   │   │
 │   │   └── inventory/
-│   │       ├── __init__.py
-│   │       ├── routes.py
-│   │       └── schemas.py
-│   │
-│   ├── util/
-│   │   └── utils.py
-│   │
-│   └── __pycache__/ (auto-generated)
+│   ├── extensions.py
+│   ├── models.py
+│   ├── __init__.py
+│
+├── static/
+│   └── swagger.yaml
 │
 ├── tests/
 │   ├── test_customers.py
 │   ├── test_mechanics.py
-│   ├── test_service_tickets.py
 │   ├── test_inventory.py
-│   └── __pycache__/ (auto-generated)
+│   ├── test_service_tickets.py
+│   └── __init__.py
 │
-└── venv/ (virtual environment - excluded from GitHub)
+├── .github/
+│   └── workflows/
+│       └── main.yaml
+│
+├── flask_app.py
+├── config.py
+├── requirements.txt
+├── .env  (NOT COMMITTED)
+└── README.md
